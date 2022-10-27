@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-sm mt-5 shadow p-5 border-top border-primary rounded">
+    <p>Olá! Seja bem vindo(a) ao assistente virtual para criação de grades de curso do CEAD | UFJF!</p>
+    <p>Preencha os campos a seguir para que seja gerado o documento formatado para o site do CEAD e encaminhe
+        o mesmo junto ao seu pedido de alteração da grade através do e-mail do Acadêmico | CEAD.</p>
+    <p>É também possível gerar o documento anexando um documento .txt na seguinte formatação:</p>
+    <code>
+        nome_do_curso<br>
+        periodo, nome, tipo, categoria, carga-horária
+    </code>
+    <p class="mt-3">Exemplo:</p>
+    <code>
+        PEDAGOGIA<br>
+        1, História da Educação, Obrigatória, Disciplina Convencional, 60<br>
+        1, Memória e Saberes Escolares, Obrigatória, Disciplina Convencional, 60
+    </code>
+</div>
+<div class="container w-50 d-flex justify-content-center gap-5 mt-5">
+    <a href="{% url 'assistente' %}" class="btn btn-primary">Criar usando o assistente</a>
+    <a class="btn btn-primary">Enviar arquivo formatado</a>
+</div>
+
+{% endblock %}
