@@ -7,18 +7,21 @@
 <form method="post">{% csrf_token %}
     <div id="mainContainer" class="container mt-5">
         <div id="periodoContainer-1" class="d-flex gap-2 mb-3">
-            <div class="periodo container shadow p-3 rounded border-top border-primary">
-                <h2>1° Período</h2>
+            <div class="periodo container shadow p-4 rounded border-top border-primary">
+                <div class="d-flex gap-3 mb-2 align-items-center justify-content-between">
+                    <h2>1° Período</h2>
+                    <button id="periodoRemove1-1" class="btn btn-primary periodoRemove" type="button">Remover período</button>
+                </div>
                 <div id="disciplinaContainer-1">
                     <div id="group1-1" class="disciplina d-md-flex gap-2 mb-2">
                         <input name="nome1-1" class="form-control" placeholder="Nome" required></input>
                         <input name="tipo1-1" class="form-control" placeholder="Tipo" required></input>
                         <input name="categoria1-1" class="form-control" placeholder="Categoria" required></input>
                         <input name="carga-horaria1-1" class="form-control" type="number" placeholder="Carga-horária" min="0" required></input>
-                        <button id="delete1-1" type="button" class="btn btn-danger rounded-circle disabled">&times;</button>
+                        <button id="delete1-1" type="button" class="delete btn btn-danger rounded-circle disabled">&times;</button>
                     </div>
                 </div>
-                <button type="button"class="disciplinaAdd btn btn-primary">Adicionar Disciplina</button>
+                <button type="button" class="disciplinaAdd btn btn-primary">Adicionar Disciplina</button>
             </div>
             
             <div class="d-flex flex-wrap align-content-between">
@@ -35,7 +38,6 @@
     <div class="container d-sm-flex justify-content-between align-items-center mt-5">
         <div id="periodoButtons">
             <button id="periodoAdd" class="btn btn-primary" type="button">Adicionar Período</button>
-            <button id="periodoRemove" class="btn btn-primary disabled" type="button">Remover Período</button>
         </div>
         <button id="concluir" class="btn btn-primary p-4" type="submit">Concluir</button>
     </div>

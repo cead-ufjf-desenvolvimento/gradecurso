@@ -13,7 +13,7 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 import json
 from pathlib import Path
 
-with open('../scripts/config.json') as f:
+with open('scripts/config.json') as f:
     CONFIG = json.load(f)
 
 
