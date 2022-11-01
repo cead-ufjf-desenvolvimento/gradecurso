@@ -111,7 +111,38 @@ td:first-child, th:first-child{
 .btn-primary.disabled,.btn-primary:disabled{
     color:#fff;
     background-color:#aa575c;
-    border-color:#aa575c}
+    border-color:#aa575c
+}
+
+.btn-outline-primary{
+    color:#ae1f25;
+    border-color:#ae1f25
+}
+
+.btn-outline-primary:hover{
+    color:#fff;
+    background-color:#ae1f25;
+    border-color:#ae1f25
+}
+
+.btn-check:focus+.btn-outline-primary,.btn-outline-primary:focus{
+    box-shadow:0 0 0 .25rem #ae1f257d
+}
+
+.btn-check:active+.btn-outline-primary,.btn-check:checked+.btn-outline-primary,.btn-outline-primary.active,.btn-outline-primary.dropdown-toggle.show,.btn-outline-primary:active{
+    color:#fff;
+    background-color:#ae1f25;
+    border-color:#ae1f25
+}
+
+.btn-check:active+.btn-outline-primary:focus,.btn-check:checked+.btn-outline-primary:focus,.btn-outline-primary.active:focus,.btn-outline-primary.dropdown-toggle.show:focus,.btn-outline-primary:active:focus{
+    box-shadow:0 0 0 .25rem #ae1f257d
+}
+
+.btn-outline-primary.disabled,.btn-outline-primary:disabled{
+    color:#ae1f25;
+    background-color:transparent
+}
 
 .listLink{
     color: #111111;
