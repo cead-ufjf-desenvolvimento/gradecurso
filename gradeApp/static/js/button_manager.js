@@ -1,6 +1,3 @@
-// let current_periodo = 1;
-// let current_disciplina = 1;
-
 const start_periodo = $('#mainContainer').html();
 const start_disciplina = $('#disciplinaContainer-1').html()
 
@@ -68,15 +65,12 @@ $('.disciplinaAdd').click(function(){
     
     $('#disciplinaContainer-' + periodo).append(start_disciplina);
 
-    disciplina = $(this).parent().prev().children().length;
+    disciplina = $(this).attr('id').split('-')[1] + 1;
     
     disciplinaIdUpdate(periodo);
 
-    if($('#disciplinaContainer-' + String(periodo)).children().length == 2){
-        $('#delete' + String(periodo) + '-' + String(disciplina - 1)).removeClass('disabled');
-        $('#delete' + String(periodo) + '-' + String(disciplina)).removeClass('disabled');
-    }else{
-        $('#delete' + String(periodo) + '-' + String(disciplina)).removeClass('disabled');
+    if($('#disciplinaContainer-' + String(periodo)).children().length >= 2){
+        $('#disciplinaContainer-' + String(periodo)).children().children('.delete').removeClass('disabled')
     }
 
     infoArrayUpdate();
@@ -89,20 +83,18 @@ $('.periodoAdd').click(function(){
 
     $('#periodoContainer-' + String(periodo)).after(start_periodo);
     periodo++;
-
-    if(periodo == 2){
-        $('#periodoRemove-1').removeClass('disabled');
-    }
-
-    //Não consegui entender o que está rolando aqui.....
-    //Os botões perdem os poderes apenas quando adiciono o primeiro período
-    console.log('#disciplinaAdd-' + String(periodo))
-    $('#disciplinaAdd-' + String(periodo)).replaceWith($('#disciplinaAdd-1').clone(true));
-    $('#periodoAdd-' + String(periodo)).replaceWith($('#periodoAdd-1').clone(true));
-    $('#periodoRemove-' + String(periodo)).replaceWith($('.periodoRemove').clone(true));
     
     tableUpdate();
+
+    $('#disciplinaAdd-' + String(periodo)).replaceWith($('#disciplinaAdd-1').clone(true));
+    $('#periodoAdd-' + String(periodo)).replaceWith($('#periodoAdd-1').clone(true));
+    $('#periodoRemove-' + String(periodo)).replaceWith($('#periodoRemove-1').clone(true));
+    $('#delete' + String(periodo) + '-1').replaceWith($('#delete1-1').clone(true));
+
+    tableUpdate();
     infoArrayUpdate();
+    
+    $('#delete' + String(periodo) + '-' + String(disciplina)).addClass('disabled');
 })
 
 $('.periodoRemove').click(function(){
