@@ -1,16 +1,6 @@
 const start_periodo = $('#mainContainer').html();
 const start_disciplina = $('#disciplinaContainer-1').html()
 
-let info_array;
-
-// Função que atualiza o array contendo as informações de cada período
-function infoArrayUpdate(){
-    info_array = []
-    $('.periodo').each(function(){
-        info_array.push($(this).children().slice(1, -1));
-    })
-}
-
 function disciplinaIdUpdate(periodo){
     children = $('#disciplinaContainer-' + periodo).children()
     
@@ -81,11 +71,6 @@ function tableUpdate(){
     })
 }
 
-// Armazenamento do array inicial
-$(document).ready(function(){
-    infoArrayUpdate();
-})
-
 // Função triggada ao clicar num botão de Adicionar Disciplina
 $('.disciplinaAdd').click(function(){
     periodo = $(this).attr('id').split('-')[1];
@@ -101,8 +86,6 @@ $('.disciplinaAdd').click(function(){
     if($('#disciplinaContainer-' + String(periodo)).children().length >= 2){
         $('#disciplinaContainer-' + String(periodo)).children().children('.delete').removeClass('disabled')
     }
-
-    infoArrayUpdate();
 })
 
 // Função triggada ao clicar num botão de Adicionar Período
@@ -123,7 +106,6 @@ $('.periodoAdd').click(function(){
     $('#down-' + String(periodo)).replaceWith($('#down-0').clone(true));
 
     tableUpdate();
-    infoArrayUpdate();
     showButtons(periodo);
     
     $('#delete' + String(periodo) + '-' + String(disciplina)).addClass('disabled');
@@ -133,7 +115,6 @@ $('.periodoRemove').click(function(){
     $(this).parent().parent().parent().remove();
     
     tableUpdate();
-    infoArrayUpdate();
 })
 
 $('.delete').click(function(){
@@ -148,7 +129,6 @@ $('.delete').click(function(){
     if(disciplina == 1){
         $('#delete' + periodo + '-1').addClass('disabled')
     }
-    infoArrayUpdate();
 })
 
 $('.up').click(function(){
@@ -161,7 +141,6 @@ $('.up').click(function(){
     current.replaceWith(before);
 
     tableUpdate();
-    infoArrayUpdate();
 })
 
 $('.down').click(function(){
@@ -174,5 +153,4 @@ $('.down').click(function(){
     current.replaceWith(after);
 
     tableUpdate();
-    infoArrayUpdate();
 })
