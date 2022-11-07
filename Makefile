@@ -99,6 +99,4 @@ install:
 
 #: Run the freaking shell.
 shell:
- #   ${PYTHON_BIN} ${MANAGE} shell
-
- 
+	${PYTHON_BIN} ${MANAGE} shell

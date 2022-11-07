@@ -5,6 +5,12 @@
 {% load static %}
 
 <form method="post">{% csrf_token %}
+    
+    <div class="mt-5 w-50 container shadow p-4 rounded border-top border-primary">
+        <label><h1>Nome do Curso</h1></label>
+        <input name="curso" class="form-control" placeholder="Curso" required></input>
+    </div>
+
     <div id="mainContainer" class="container mt-5">
         <div id="periodoContainer-1" class="d-flex gap-2 mb-3">
             <div class="periodo container shadow p-4 rounded border-top border-primary">
@@ -27,18 +33,33 @@
                 </div>
             </div>
             
-            <div class="d-flex flex-wrap align-content-between">
-                <button id="up-1" class="btn btn-primary disabled shadow h-25">
+            <div id="arrowContainer-1" class="d-flex flex-wrap align-content-between">
+                <button id="up-1" type="button" class="up btn btn-primary disabled shadow h-25">
                     <img src="{% static 'assets/arrow-up.svg' %}" />
                 </button>
-                <button id="down-1" class="btn btn-primary disabled shadow h-25">
+                <button id="down-1" type="button" class="down btn btn-primary disabled shadow h-25">
                     <img src="{% static 'assets/arrow-down.svg' %}" />
                 </button>
             </div>
         </div>
     </div>
-    <button id="concluir" class="btn btn-primary" type="submit">Concluir</button>
+    <div class="container-sm">
+        <button id="concluir" class="btn btn-primary" type="submit">Concluir</button>
+    </div>
 </form>
+
+<div id="extraButtons">
+    <button id="periodoRemove-0" class="btn btn-outline-primary periodoRemove" type="button" style="display: none;">- Remover Período</button>
+    <button id="disciplinaAdd-0" type="button" class="disciplinaAdd btn btn-outline-primary" style="display: none;">+ Adicionar Disciplina</button>
+    <button id="periodoAdd-0" class="periodoAdd btn btn-outline-primary" type="button" style="display: none;">+ Adicionar Período</button>
+    <button id="delete0-0" type="button" class="delete btn btn-danger rounded-circle disabled" style="display: none;">&times;</button>
+    <button id="up-0" type="button" class="up btn btn-primary shadow h-25 disabled" style="display: none;">
+        <img src="{% static 'assets/arrow-up.svg' %}" />
+    </button>
+    <button id="down-0" type="button" class="down btn btn-primary shadow h-25 disabled" style="display: none;">
+        <img src="{% static 'assets/arrow-down.svg' %}" />
+    </button>
+</div>
 
 <script src="{% static 'js/button_manager.js' %}">
     

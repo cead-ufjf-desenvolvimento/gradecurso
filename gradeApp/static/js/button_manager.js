@@ -22,9 +22,17 @@ function disciplinaIdUpdate(periodo){
         group.children().eq(1).attr('name', 'tipo' + periodo + '-' + index);
         group.children().eq(2).attr('name', 'categoria' + periodo + '-' + index);
         group.children().eq(3).attr('name', 'carga-horaria' + periodo + '-' + index);
-        group.children().eq(4).replaceWith($('#group1-1').children().last().clone(true));
         group.children().eq(4).attr('id', 'delete' + periodo + '-' + index);
     })
+}
+
+function showButtons(periodo){
+    $('#disciplinaAdd-' + String(periodo)).show()
+    $('#periodoAdd-' + String(periodo)).show()
+    $('#periodoRemove-' + String(periodo)).show()
+    $('#delete' + String(periodo) + '-1').show()
+    $('#up-' + String(periodo)).show()
+    $('#down-' + String(periodo)).show()
 }
 
 function tableUpdate(){
@@ -37,20 +45,39 @@ function tableUpdate(){
         footer = current_periodo.children().eq(0).children().eq(2)
 
         title = header.children().eq(0)
-        disciplinaRemoveBtn = header.children().eq(1)
+        periodoRemoveBtn = header.children().eq(1)
         disciplinaAddBtn = footer.children().eq(0)
         periodoAddBtn = footer.children().eq(1)
+
+        arrowContainer = current_periodo.children().eq(1)
+        up = arrowContainer.children().first()
+        down = arrowContainer.children().last()
         
         current_periodo.attr('id', 'periodoContainer-' + String(index + 1))
         header.attr('id', 'header' + String(index + 1))
         disciplinaContainer.attr('id', 'disciplinaContainer-' + String(index + 1))
         footer.attr('id', 'footer' + String(index + 1))
         title.text(String(index + 1) + 'º Período')
-        disciplinaRemoveBtn.attr('id', 'disciplinaRemove' + '-' + String(index + 1))
+        periodoRemoveBtn.attr('id', 'periodoRemove' + '-' + String(index + 1))
         disciplinaAddBtn.attr('id', 'disciplinaAdd' + '-' + String(index + 1))
         periodoAddBtn.attr('id', 'periodoAdd' + '-' + String(index + 1))
+        arrowContainer.attr('id', 'arrowContainer-' + String(index + 1))
+        up.attr('id', 'up-' + String(index + 1))
+        down.attr('id', 'down-' + String(index + 1))
 
         disciplinaIdUpdate(index + 1);
+
+        if(periodoContainers.length > 1){
+            $('.up').removeClass('disabled');
+            $('.down').removeClass('disabled');
+            $('.periodoRemove').removeClass('disabled');
+            $('.up').first().addClass('disabled');
+            $('.down').eq(-2).addClass('disabled');
+        }else{
+            $('.up').addClass('disabled');
+            $('.down').addClass('disabled');
+            $('.periodoRemove').addClass('disabled');
+        }
     })
 }
 
@@ -64,9 +91,11 @@ $('.disciplinaAdd').click(function(){
     periodo = $(this).attr('id').split('-')[1];
     
     $('#disciplinaContainer-' + periodo).append(start_disciplina);
+    $('#disciplinaContainer-' + periodo).children().last().children().last().replaceWith($('#delete0-0').clone(true))
+    $('#disciplinaContainer-' + periodo).children().last().children().last().show()
 
-    disciplina = $(this).attr('id').split('-')[1] + 1;
     
+
     disciplinaIdUpdate(periodo);
 
     if($('#disciplinaContainer-' + String(periodo)).children().length >= 2){
@@ -86,13 +115,16 @@ $('.periodoAdd').click(function(){
     
     tableUpdate();
 
-    $('#disciplinaAdd-' + String(periodo)).replaceWith($('#disciplinaAdd-1').clone(true));
-    $('#periodoAdd-' + String(periodo)).replaceWith($('#periodoAdd-1').clone(true));
-    $('#periodoRemove-' + String(periodo)).replaceWith($('#periodoRemove-1').clone(true));
-    $('#delete' + String(periodo) + '-1').replaceWith($('#delete1-1').clone(true));
+    $('#disciplinaAdd-' + String(periodo)).replaceWith($('#disciplinaAdd-0').clone(true));
+    $('#periodoAdd-' + String(periodo)).replaceWith($('#periodoAdd-0').clone(true));
+    $('#periodoRemove-' + String(periodo)).replaceWith($('#periodoRemove-0').clone(true));
+    $('#delete' + String(periodo) + '-1').replaceWith($('#delete0-0').clone(true));
+    $('#up-' + String(periodo)).replaceWith($('#up-0').clone(true));
+    $('#down-' + String(periodo)).replaceWith($('#down-0').clone(true));
 
     tableUpdate();
     infoArrayUpdate();
+    showButtons(periodo);
     
     $('#delete' + String(periodo) + '-' + String(disciplina)).addClass('disabled');
 })
@@ -116,5 +148,31 @@ $('.delete').click(function(){
     if(disciplina == 1){
         $('#delete' + periodo + '-1').addClass('disabled')
     }
+    infoArrayUpdate();
+})
+
+$('.up').click(function(){
+    periodo = Number($(this).attr('id').split('-')[1]);
+
+    before = $('#periodoContainer-' + String(periodo - 1)).children().eq(0).children().eq(1);
+    current = $('#periodoContainer-' + String(periodo)).children().eq(0).children().eq(1);
+
+    before.replaceWith(current.clone(true));
+    current.replaceWith(before);
+
+    tableUpdate();
+    infoArrayUpdate();
+})
+
+$('.down').click(function(){
+    periodo = Number($(this).attr('id').split('-')[1]);
+
+    after = $('#periodoContainer-' + String(periodo + 1)).children().eq(0).children().eq(1);
+    current = $('#periodoContainer-' + String(periodo)).children().eq(0).children().eq(1);
+
+    after.replaceWith(current.clone(true));
+    current.replaceWith(after);
+
+    tableUpdate();
     infoArrayUpdate();
 })

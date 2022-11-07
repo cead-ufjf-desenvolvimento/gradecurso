@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light shadow">
+    <nav class="navbar navbar-light bg-light shadow position-relative">
         <div id="navbar" class="container-fluid d-flex align-items-center">
             <a class="navbar-brand" href="{% url 'index' %}">
                 <img src="{% static 'assets/cead_logo.png' %}" alt="Logo do CEAD" class="ms-2 logo d-inline-block align-text-center">
@@ -38,6 +38,6 @@
         </div>
     </nav>
 
-{% block content %}{% endblock %}
+    {% block content %}{% endblock %}
 
 </body>

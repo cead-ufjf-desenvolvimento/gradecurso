@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+
+<div>
+    {{nome_curso}}
+</div>
+<div>
+    Modalidade a Distância
+</div>
+<div class="d-flex">
+    <div>Período</div>
+    <div>Nome</div>
+    <div>Tipo</div>
+    <div>Categoria</div>
+    <div>Carga-horária</div>
+</div>
+
+{% for disciplina in disciplina_list %}
+<div class="d-flex">
+    <div>{{disciplina.periodo}}</div>
+    <div>{{disciplina.nome}}</div>
+    <div>{{disciplina.tipo}}</div>
+    <div>{{disciplina.categoria}}</div>
+    <div>{{disciplina.carga_horaria}}</div>
+</div>
+{% endfor %}
+
+{% endblock %}
