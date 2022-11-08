@@ -4,24 +4,24 @@
 
 <div class="position-absolute start-50 top-50 translate-middle">
     <div class="container-sm shadow p-5 border-top border-primary rounded">
+        <h1 class="h2 text-center mb-5">Assistente de Criação de Grades de Curso</h1>
+
         <p>Olá! Seja bem vindo(a) ao assistente virtual para criação de grades de curso do CEAD | UFJF!</p>
-        <p>Preencha os campos a seguir para que seja gerado o documento formatado para o site do CEAD e encaminhe
-            o mesmo junto ao seu pedido de alteração da grade através do e-mail do Acadêmico | CEAD.</p>
-        <p>É também possível gerar o documento anexando um documento .txt na seguinte formatação:</p>
-        <code>
-            nome_do_curso<br>
-            periodo, nome, tipo, categoria, carga-horária
-        </code>
-        <p class="mt-3">Exemplo:</p>
-        <code>
-            PEDAGOGIA<br>
-            1, História da Educação, Obrigatória, Disciplina Convencional, 60<br>
-            1, Memória e Saberes Escolares, Obrigatória, Disciplina Convencional, 60
-        </code>
+        <p>Através de uma das opções a seguir você poderá gerar um arquivo formatado contendo a grade do
+            curso de interesse dentro dos padrões propostos pelo site do CEAD | UFJF</p>
+        
+        <p>Você pode utilizar nosso assistente de formatação, para criação, disciplina a disciplina,
+            da sua grade, com o auxílio de nossa plataforma virtual (disponível no botão à direita);</p>
+
+        <p>ou, caso prefira, pode fazer o envio de um documento Excel<span class="text-danger">*</span> em conformidade com o nosso 
+            template (disponível no botão à direita).</p>
+
+        <small class="text-danger">*em um dos seguintes formatos: .xls, .xlsx, .xlsm, .xlsb, .odf, .ods ou .odt</small>
+
     </div>
     <div class="container d-flex justify-content-center gap-5 mt-5">
         <a href="{% url 'assistente' %}" class="btn btn-primary">Criar usando o assistente</a>
-        <a class="btn btn-primary">Enviar arquivo formatado</a>
+        <a href="{% url 'arquivo' %}" class="btn btn-primary">Enviar arquivo formatado</a>
     </div>
 </div>
 {% endblock %}
