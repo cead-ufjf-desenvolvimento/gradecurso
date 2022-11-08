@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+
+<div class="w-50 p-5 shadow position-absolute start-50 top-50 translate-middle">
+    <p>Para que haja sucesso no envio do arquivo Excel<span class="text-danger">*</span> 
+        é necessário que alguns requisitos sejam atendidos.</p>
+    <p>Nós disponibilizamos uma planilha modelo para download no link a seguir.</p>
+    <p><strong>É fundamental que não sejam alteradas as células em vermelho e que não haja salto
+        de linhas.</strong></p>
+    
+    <p>Exemplo de preenchimento correto:</p>
+    <img class="w-100 mb-3" src="{% static 'assets/exemplo_excel.png' %}"/>
+    
+    <p>Link para download da planilha modelo: <a href="{% static 'assets/template_grade_CEAD.xlsx' %}" download>Download</a></p>
+
+    <p>Uma vez preenchida, basta selecionar e enviar sua planilha clicando no botão abaixo</p>
+    <small class="text-danger">*em um dos seguintes formatos: .xls, .xlsx, .xlsm, .xlsb, .odf, .ods ou .odt</small>
+
+    
+    <form enctype="multipart/form-data" method="post">{% csrf_token %}
+        <input name="carga" class="form-control mb-3" type="file" required/>
+        <button class="btn btn-primary" type="submit">Gerar grade</button>
+    </form>
+</div>
+
+{% endblock %}

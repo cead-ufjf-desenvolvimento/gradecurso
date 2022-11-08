@@ -1,11 +1,13 @@
 const start_periodo = $('#mainContainer').html();
 const start_disciplina = $('#disciplinaContainer-1').html()
 
+//Percorre o conjunto de disciplinas de um dado Período, atualizando as numerações das mesmas
 function disciplinaIdUpdate(periodo){
-    children = $('#disciplinaContainer-' + periodo).children()
+    //Armazena todos os grupos de dados de cada disciplina de um dado período
+    groups = $('#disciplinaContainer-' + periodo).children()
     
-    $.each(children, function(index){
-        group = children.eq(index);
+    $.each(groups, function(index){
+        group = groups.eq(index);
         index++;
         group.attr('id', 'group' + periodo + '-' + index);
         group.children().eq(0).attr('name', 'nome' + periodo + '-' + index);
@@ -16,6 +18,7 @@ function disciplinaIdUpdate(periodo){
     })
 }
 
+//Faz com que os botões de um dado Período sejam mostrados
 function showButtons(periodo){
     $('#disciplinaAdd-' + String(periodo)).show()
     $('#periodoAdd-' + String(periodo)).show()
@@ -25,6 +28,7 @@ function showButtons(periodo){
     $('#down-' + String(periodo)).show()
 }
 
+//Atualiza a numeração de toda a tabela
 function tableUpdate(){
     periodoContainers = $('#mainContainer').children()
     
