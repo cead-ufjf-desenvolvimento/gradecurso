@@ -15,7 +15,7 @@
 ## PATH's
 #
 SRC          := ./
-VENV_BIN_DIR := ~/.venvs/gradecurso/bin
+VENV_BIN_DIR := ~/.venvs/grade-curso/bin
 ACTIVATE     := ${VENV_BIN_DIR}/activate
 PYTHON_BIN   := ${VENV_BIN_DIR}/python
 PIP_BIN      := ${VENV_BIN_DIR}/pip
