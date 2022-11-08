@@ -23,7 +23,10 @@
     
     <form enctype="multipart/form-data" method="post">{% csrf_token %}
         <input name="carga" class="form-control mb-3" type="file" required/>
-        <button class="btn btn-primary" type="submit">Gerar grade</button>
+        <div class="d-flex align-items-center gap-2">
+            <button class="btn btn-primary" type="submit">Gerar grade</button>
+            <a href="{% url 'index' %}" class="btn btn-secondary" type="submit">Cancelar</a>
+        </div>
     </form>
 </div>
 

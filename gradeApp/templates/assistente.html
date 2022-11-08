@@ -21,9 +21,9 @@
                 <div id="disciplinaContainer-1">
                     <div id="group1-1" class="disciplina d-md-flex gap-2 mb-2">
                         <input name="nome1-1" class="form-control" placeholder="Nome" required></input>
-                        <input name="tipo1-1" class="form-control" placeholder="Tipo" required></input>
-                        <input name="categoria1-1" class="form-control" placeholder="Categoria" required></input>
-                        <input name="carga-horaria1-1" class="form-control" type="number" placeholder="Carga-horária" min="0" required></input>
+                        <input name="tipo1-1" class="form-control w-50" placeholder="Tipo" required></input>
+                        <input name="categoria1-1" class="form-control w-75" placeholder="Categoria" required></input>
+                        <input name="carga-horaria1-1" class="form-control w-50" type="number" placeholder="Carga-horária" min="0" required></input>
                         <button id="delete1-1" type="button" class="delete btn btn-danger rounded-circle disabled">&times;</button>
                     </div>
                 </div>
@@ -44,7 +44,8 @@
         </div>
     </div>
     <div class="container-sm">
-        <button id="concluir" class="btn btn-primary mb-3" type="submit">Gerar grade</button>
+        <button id="concluir" class="btn btn-primary mb-3 me-2" type="submit">Gerar grade</button>
+        <a href="{% url 'index' %}" class="btn btn-secondary mb-3" type="submit">Cancelar</a>
     </div>
 </form>
 
