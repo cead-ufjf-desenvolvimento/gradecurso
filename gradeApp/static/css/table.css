@@ -13,20 +13,20 @@ td{
 }
 .disciplina{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-	background:#df0000;
+	background:#ae1f25;
     text-align: center;
     color: #ffffff;
 }
 
 .modalidade {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    background: black;
+    background: #333333;
     text-align: center;
     color: #ffffff;
 }
 .cabecalho{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-   background: black;
+   background: #333333;
     text-align: center;
     color: #ffffff;
 }
@@ -37,8 +37,6 @@ td{
 }
 .par{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-   
-    
     text-align: center;
 	background:#cececc;
 }
