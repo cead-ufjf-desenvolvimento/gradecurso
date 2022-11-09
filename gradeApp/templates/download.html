@@ -1,1 +1,37 @@
-Baixe aqui
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="position-absolute start-50 top-50 translate-middle p-4 shadow">
+    <h4 class="mb-3">Seu download estará pronto em <span id="countdown">8</span>...</h4>
+    <p>Em instantes, você terá acesso ao seu arquivo.</p>
+    <p>Salve-o e encaminhe sua solicitação de alteração da grade através do e-mail: 
+        <strong>academico.cead@ufjf.br</strong>
+    </p>
+    <div class="d-flex justify-content-center">
+        <a id="download" class="btn btn-primary" href="/media/output.jpg" download style="display:none;">Download</a>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function(){
+        setTimeout(function(){
+            $('#countdown').text(String(0));
+            $('#download').show()
+        }, 8000);
+        
+        let interval = setInterval(countdown, 1000);
+        
+        count = 7;
+        
+        function countdown(){
+            $('#countdown').text(String(count))
+            count--;
+            if(count == 0){
+                clearInterval(interval);
+            }
+        }
+    })
+</script>
+
+{% endblock %}
