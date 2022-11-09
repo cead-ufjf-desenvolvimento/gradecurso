@@ -1,15 +1,21 @@
 {% extends "base.html" %}
 
 {% block content %}
+
 {% load static %}
 
 <link href="{% static "css/table.css" %}" rel="stylesheet">
 
-<div style="margin-top: 3.5rem; position: absolute; left:50%; transform: translate(-50%);">
+<div class="d-flex justify-content-center mt-5">
+    <form method="get">
+        <button name="baixar" type="submit" class="btn btn-primary">Baixar Imagem</button>
+    </form>
+</div>
 
-    <table style="width:50rem;">
+<div style="margin-top: 2rem; position: absolute; left:50%; transform: translate(-50%); width: 50rem;">
+
+    <table style="width:100%;">
         <thead>
-
             <tr>
                 <th colspan="5" align="center" class="modalidade">Modalidade a Distância</th>
             </tr>
@@ -47,7 +53,12 @@
             {% endfor %}
         </tbody>  
     </table>
-    
 </div>
+
+<script>
+    $('button').click(function(){
+        $('button').attr('value', $('body').children().eq(3).html())
+    })
+</script>
 
 {% endblock %}

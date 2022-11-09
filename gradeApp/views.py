@@ -1,5 +1,6 @@
-import pandas
-from django.shortcuts import render
+import pandas, imgkit
+from django.shortcuts import render, redirect
+from django.conf import settings
 
 # Create your views here.
 def index(request):
@@ -51,6 +52,10 @@ def arquivo(request):
                 }
             )
         return render(request, 'output.html', context)
-
-
+    elif request.GET.get('baixar'):
+        imgkit.from_string(request.GET.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
+        return redirect('download')
     return render(request, 'arquivo.html')
+
+def download(request):
+    return render(request, 'download.html')

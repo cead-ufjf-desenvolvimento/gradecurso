@@ -1,16 +1,30 @@
 
 tr th{
-	font-weight:bold;
+	font-weight: bold;
 }
+
 tr th, tr td{
-	padding:5px;
+	padding: 5px;
 }
+
+tr th:first-child,
+tr td:first-child{
+    padding: 5px 0;
+}
+
+tr th:last-child,
+tr td:last-child{
+    padding: 5px 0;
+}
+
 th{
     border: 5px solid #ffffff;
 }
+
 td{
-	border: 5px solid #FFFFFF;
+	border: 5px solid #ffffff;
 }
+
 .disciplina{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 	background:#ae1f25;
