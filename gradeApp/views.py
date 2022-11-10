@@ -7,8 +7,6 @@ def index(request):
     return render(request, 'index.html')
 
 def assistente(request):
-    if request.method == 'GET':
-        return render(request, 'assistente.html')
     if request.method == 'POST':
         output = dict(request.POST.items())
         keys = list(output.keys())
@@ -30,6 +28,10 @@ def assistente(request):
                 }
             )
         return render(request, 'output.html', context)
+    elif request.GET.get('baixar'):
+        imgkit.from_string(request.GET.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
+        return redirect('download')
+    return render(request, 'assistente.html')
 
 def arquivo(request):
     if request.method == "POST":
