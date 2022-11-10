@@ -7,11 +7,29 @@ utilizado no site do CEAD|UFJF.
 virtual em tempo real ou pelo envio de um arquivo Excel
 pré-formatado e disponibilizado pela página.
 
-## Index
+## Configuração
+
+Instalação dos módulos necessários:
+```bash
+    pip install requirements.requirements.txt
+```
+
+Instalação do wkhtmltopdf
+```bash
+    apt install wkhtmltopdf
+```
+
+Criação da pasta **scripts** na raiz do projeto e inserção do arquivo **config.json** (solicitar).
+
+```bash
+    python manage.py runserver [port]
+```
+
+### Index
 ![App Screenshot](gradeApp/static/screenshots/screenshot1.png)
 
-## Assistente
+### Assistente
 ![App Screenshot](gradeApp/static/screenshots/screenshot2.png)
 
-## Arquivo
+### Arquivo
 ![App Screenshot](gradeApp/static/screenshots/screenshot3.png)
