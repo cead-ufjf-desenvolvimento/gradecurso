@@ -12,16 +12,16 @@
     </form>
 </div>
 
-<div style="margin-top: 2rem; position: absolute; left:50%; transform: translate(-50%); width: 50rem;">
+<div style="margin-top: 2rem; position: absolute; left:50%; transform: translate(-50%); width: 70vw;">
 
     <table style="width:100%;">
         <thead>
             <tr>
-                <th colspan="5" align="center" class="modalidade">Modalidade a Distância</th>
+                <th colspan="6" align="center" class="modalidade">Modalidade a Distância</th>
             </tr>
 
             <tr>
-                <th colspan="5" align="center" class="disciplina">{{nome_curso|upper}}</th>
+                <th colspan="6" align="center" class="disciplina">{{nome_curso|upper}}</th>
             </tr>
 
             <tr align="center">
@@ -30,6 +30,7 @@
                 <th align="center" class="cabecalho">Tipo</th>
                 <th align="center" class="cabecalho">Categoria</th>
                 <th align="center" class="cabecalho">Carga-horária</th>
+                <th align="center" class="cabecalho">Pré-requisito</th>
             </tr>
         </thead>
 
@@ -42,12 +43,14 @@
                 <td class="par">{{disciplina.tipo}}</td>
                 <td class="par">{{disciplina.categoria}}</td>
                 <td class="par">{{disciplina.carga_horaria}}</td>
+                <td class="par">{{disciplina.pre_requisito}}</td>
             {% else %}
                 <td class="impar">{{disciplina.periodo}}</td>
                 <td class="impar">{{disciplina.nome}}</td>
                 <td class="impar">{{disciplina.tipo}}</td>
                 <td class="impar">{{disciplina.categoria}}</td>
-                <td class="impar">{{disciplina.carga_horaria}}</td> 
+                <td class="impar">{{disciplina.carga_horaria}}</td>
+                <td class="impar">{{disciplina.pre_requisito}}</td>
             {% endif %}  
             </tr>
             {% endfor %}
