@@ -14,7 +14,8 @@ function disciplinaIdUpdate(periodo){
         group.children().eq(1).attr('name', 'tipo' + periodo + '-' + index);
         group.children().eq(2).attr('name', 'categoria' + periodo + '-' + index);
         group.children().eq(3).attr('name', 'carga-horaria' + periodo + '-' + index);
-        group.children().eq(4).attr('id', 'delete' + periodo + '-' + index);
+        group.children().eq(4).attr('name', 'pre-requisito' + periodo + '-' + index);
+        group.children().eq(5).attr('id', 'delete' + periodo + '-' + index);
     })
 }
 
