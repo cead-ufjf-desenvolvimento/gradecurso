@@ -43,14 +43,14 @@
                 <td class="par">{{disciplina.tipo}}</td>
                 <td class="par">{{disciplina.categoria}}</td>
                 <td class="par">{{disciplina.carga_horaria}}</td>
-                <td class="par">{{disciplina.pre_requisito}}</td>
+                <td class="par">{% if disciplina.pre_requisito == disciplina.pre_requisito %}{{disciplina.pre_requisito}}{% else %}{% endif %}</td>
             {% else %}
                 <td class="impar">{{disciplina.periodo}}</td>
                 <td class="impar">{{disciplina.nome}}</td>
                 <td class="impar">{{disciplina.tipo}}</td>
                 <td class="impar">{{disciplina.categoria}}</td>
                 <td class="impar">{{disciplina.carga_horaria}}</td>
-                <td class="impar">{{disciplina.pre_requisito}}</td>
+                <td class="impar">{% if disciplina.pre_requisito == disciplina.pre_requisito %}{{disciplina.pre_requisito}}{% else %}{% endif %}</td>
             {% endif %}  
             </tr>
             {% endfor %}

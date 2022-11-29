@@ -57,6 +57,7 @@ def arquivo(request):
                     'pre_requisito': grade_dict['Pré-requisito'][i]       
                 }
             )
+            print(context)
         return render(request, 'output.html', context)
     elif request.GET.get('baixar'):
         imgkit.from_string(request.GET.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
