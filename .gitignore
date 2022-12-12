@@ -5,3 +5,9 @@ db.sqlite3
 __pycache__
 
 Makefile
+
+.env
+
+output.jpg
+
+*.pyc
