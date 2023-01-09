@@ -1,0 +1,56 @@
+
+tr th{
+	font-weight: bold;
+}
+
+tr th, tr td{
+	padding: 5px;
+}
+
+tr th:first-child,
+tr td:first-child{
+    padding: 5px 0;
+}
+
+tr th:last-child,
+tr td:last-child{
+    padding: 5px 0;
+}
+
+th{
+    border: 5px solid #ffffff;
+}
+
+td{
+	border: 5px solid #ffffff;
+}
+
+.disciplina{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+	background:#ae1f25;
+    text-align: center;
+    color: #ffffff;
+}
+
+.modalidade {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background: #333333;
+    text-align: center;
+    color: #ffffff;
+}
+.cabecalho{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   background: #333333;
+    text-align: center;
+    color: #ffffff;
+}
+.impar{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+	background:#ebebeb;
+}
+.par{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+	background:#cececc;
+}
