@@ -7,7 +7,11 @@ def index(request):
     return render(request, 'index.html')
 
 def assistente(request):
-    if request.method == 'POST':
+    if request.method == 'POST' and request.POST.get('baixar'):
+        imgkit.from_string(request.POST.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
+        return redirect('download')
+    
+    elif request.method == 'POST':
         output = dict(request.POST.items())
         keys = list(output.keys())
         values = list(output.values())
@@ -30,14 +34,15 @@ def assistente(request):
             )
         return render(request, 'output.html', context)
     
-    elif request.GET.get('baixar'):
-        imgkit.from_string(request.GET.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
-        return redirect('download')
         
     return render(request, 'assistente.html')
 
 def arquivo(request):
-    if request.method == "POST":
+    if request.method == "POST" and request.POST.get('baixar'):
+        imgkit.from_string(request.POST.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
+        return redirect('download')
+
+    elif request.method == "POST":
         nome_curso_dict = pandas.read_excel(request.FILES['carga'], header=0)
         grade_dict = pandas.read_excel(request.FILES['carga'], header=2)
 
@@ -57,11 +62,8 @@ def arquivo(request):
                     'pre_requisito': grade_dict['Pré-requisito'][i]       
                 }
             )
-            print(context)
         return render(request, 'output.html', context)
-    elif request.GET.get('baixar'):
-        imgkit.from_string(request.GET.get('baixar'), 'outputs/output.jpg', css=str(settings.STATIC_ROOT) + '/css/table.css')
-        return redirect('download')
+    
     return render(request, 'arquivo.html')
 
 def download(request):
