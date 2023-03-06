@@ -33,7 +33,6 @@ def assistente(request):
                 }
             )
         return render(request, 'output.html', context)
-    
         
     return render(request, 'assistente.html')
 
