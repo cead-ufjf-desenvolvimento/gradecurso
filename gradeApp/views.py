@@ -53,12 +53,13 @@ def arquivo(request):
         for i in range(len(grade_dict)):
             context['disciplina_list'].append(
                 {
-                    'periodo': grade_dict['Período'][i],
+                    'de': grade_dict['De'][i],
+                    'ate': grade_dict['Até'][i],
                     'nome': grade_dict['Nome'][i],
                     'tipo': grade_dict['Tipo'][i],
                     'categoria': grade_dict['Categoria'][i],
                     'carga_horaria': grade_dict['Carga-horária'][i],
-                    'pre_requisito': grade_dict['Pré-requisito'][i]       
+                    'pre_requisito': grade_dict['Pré-requisito'][i]     
                 }
             )
         return render(request, 'output.html', context)

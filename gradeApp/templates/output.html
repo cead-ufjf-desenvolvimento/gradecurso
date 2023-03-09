@@ -17,15 +17,16 @@
     <table style="width:100%;">
         <thead>
             <tr>
-                <th colspan="6" align="center" class="modalidade">Modalidade a Distância</th>
+                <th colspan="7" align="center" class="modalidade">Modalidade a Distância</th>
             </tr>
 
             <tr>
-                <th colspan="6" align="center" class="disciplina">{{nome_curso|upper}}</th>
+                <th colspan="7" align="center" class="disciplina">{{nome_curso|upper}}</th>
             </tr>
 
             <tr align="center">
-                <th align="center" class="cabecalho">Período</th>
+                <th align="center" class="cabecalho">De</th>
+                <th align="center" class="cabecalho">Até</th>
                 <th align="center" class="cabecalho">Nome</th>
                 <th align="center" class="cabecalho">Tipo</th>
                 <th align="center" class="cabecalho">Categoria</th>
@@ -37,21 +38,13 @@
         <tbody>
             {% for disciplina in disciplina_list %}
             <tr>
-            {%if disciplina.periodo|divisibleby:2%}
-                <td class="par">{{disciplina.periodo}}</td>
-                <td class="par">{{disciplina.nome}}</td>
-                <td class="par">{{disciplina.tipo}}</td>
-                <td class="par">{{disciplina.categoria}}</td>
-                <td class="par">{{disciplina.carga_horaria}}</td>
-                <td class="par">{% if disciplina.pre_requisito == disciplina.pre_requisito %}{{disciplina.pre_requisito}}{% else %}{% endif %}</td>
-            {% else %}
-                <td class="impar">{{disciplina.periodo}}</td>
-                <td class="impar">{{disciplina.nome}}</td>
-                <td class="impar">{{disciplina.tipo}}</td>
-                <td class="impar">{{disciplina.categoria}}</td>
-                <td class="impar">{{disciplina.carga_horaria}}</td>
-                <td class="impar">{% if disciplina.pre_requisito == disciplina.pre_requisito %}{{disciplina.pre_requisito}}{% else %}{% endif %}</td>
-            {% endif %}  
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{{disciplina.de|date:"d/m/Y"}}</td>
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{% if disciplina.ate == disciplina.ate %}{{disciplina.ate|date:"d/m/Y"}}{% else %}{% endif %}</td>
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{{disciplina.nome}}</td>
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{% if disciplina.tipo == disciplina.tipo %}{{disciplina.tipo}}{% else %}{% endif %}</td>
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{% if disciplina.categoria == disciplina.categoria %}{{disciplina.categoria}}{% else %}{% endif %}</td>
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{% if disciplina.carga_horaria == disciplina.carga_horaria %}{{disciplina.carga_horaria}}{% else %}{% endif %}</td>
+                <td class="{% if forloop.counter|divisibleby:2 %}par{% else %}impar{% endif %}">{% if disciplina.pre_requisito == disciplina.pre_requisito %}{{disciplina.pre_requisito}}{% else %}{% endif %}</td>  
             </tr>
             {% endfor %}
         </tbody>  
